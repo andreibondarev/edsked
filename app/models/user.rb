@@ -6,4 +6,10 @@ class User < ActiveRecord::Base
 
   enum role: [ :student, :assistant, :teacher, :administrator, :principle ]
          
+  has_many :events_users         
+  has_many :events, through: :events_users
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
