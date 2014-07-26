@@ -1,27 +1,17 @@
 <%= form_for(@event) do |f| %>
-  <% if @event.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
-
-      <ul>
-      <% @event.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+  <%= render partial: 'shared/errors', locals: {object: @event} %>
 
   <div class='form-group'>
     <% events_user = f.object.events_users.first_or_initialize %>
     <%= f.fields_for :events_users do |l| %>
       <%= l.label :user_id, 'Invitee' %><br />
-      <%= l.select :user_id, options_for_select(User.all.map{|u| [u.full_name, u.id]}), {}, {class: 'form-control'} %>
+      <%= l.select :user_id, options_for_select(User.all.map{|u| [u.full_name, u.id]}, events_user.try(:user_id)), {}, {class: 'form-control'} %>
     <% end %>
   </div>
 
   <div class='form-group'>
     <%= f.label :event_type, 'Event Type' %><br />
-    <%= f.select :event_type, options_for_select(Event.event_types.keys, Event.event_types.values), {}, {class: 'form-control'} %>
+    <%= f.select :event_type, options_for_select(Event.event_types.keys, Event.event_types.values), {selected: f.object.event_type}, {class: 'form-control'} %>
   </div>
 
   <div class='form-group'>
@@ -31,7 +21,7 @@
 
   <div class='form-group'>
     <%= f.label :period_id, 'Period' %><br />
-    <%= f.text_field :period_id, value: 0, class: 'form-control' %>
+    <%= f.select :period_id, options_for_select(Period.all.map{|p| [p.period_name, p.id]}, f.object.period_id), {}, {class: 'form-control'} %>
   </div>
 
   <div class='form-group'>

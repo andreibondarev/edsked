@@ -7,4 +7,8 @@ class Event < ActiveRecord::Base
   enum event_type: [:teaching, :planning]
 
   accepts_nested_attributes_for :events_users
+
+  validates :event_date, presence: true
+  validates :event_type, presence: true
+  validates :period, presence: true
 end
