@@ -11,6 +11,7 @@ class PeriodsController < ApplicationController
     @period = Period.new(period_params)
     if @period.save
       flash[:success] = "Period saved successfully."
+      @periods = Period.all
       render 'index'
     else
       render 'new'
@@ -25,7 +26,8 @@ class PeriodsController < ApplicationController
   	@period = Period.find(params[:id])
     if @period.update_attributes(period_params)
       flash[:success] = "Period saved successfully."
-      redirect_to @period
+      @periods = Period.all
+      render 'index'
     else
       render 'edit'
     end

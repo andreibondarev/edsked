@@ -4,14 +4,19 @@
   <div class="span6 offset3">
     <%= form_for(@period) do |f| %>
 
-      <%= f.label :period_name %>
-      <%= f.text_field :period_name %>
+      <div class="form-group">
+        <%= f.label :period_name %>
+        <%= f.text_field :period_name, class: "form-control" %>
+      </div>
 
-      <%= f.label :start_time %>
-      <%= f.time_field :start_time %>
+      <div class="form-group">
+        <%= f.label :start_time %>
+        <%= f.time_field :start_time, class: "form-control" %>
+      </div>
 
-      <%= f.label :end_time %>
-      <%= f.time_field :end_time %>
+      <div class="form-group">
+        <%= f.label :end_time %>
+        <%= f.time_field :end_time, class: "form-control" %>
 
       <%= f.submit "Create Period", class: "btn btn-large btn-primary" %>
     <% end %>
