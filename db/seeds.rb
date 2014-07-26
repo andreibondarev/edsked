@@ -5,3 +5,5 @@ User.where(first_name: 'James', last_name: 'Flowers', email: 'jflowers@me.com').
 User.where(first_name: 'Rwemerson', last_name: 'Rwemerson', email: 'rwemerson0386@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
 User.where(first_name: 'Chihiro', last_name: 'Kawana', email: 'chihiro.kawana107@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
 User.where(first_name: 'Kevin', last_name: 'Morrison', email: 'k.francis.morrison@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
+
+User.where(first_name: 'Admin', last_name: 'Steve', email: 'admin@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :administrator)
