@@ -4,8 +4,8 @@ $(document).ready(function() {
       aspectRatio: 2,
       header: {
         left:   'title',
-        center: 'month, basicWeek',
-        right:  'today prev,next'
+        center: 'month, basicWeek, basicDay',
+        right:  'prev,next'
       },
       eventSources: [
         {

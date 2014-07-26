@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  enum role: [ :student, :assistant, :teacher, :administrator, :principle ]
+  enum role: [ :student, :assistant, :teacher, :administrator, :principal ]
          
   has_many :events_users         
   has_many :events, through: :events_users
@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def show_admin?
-    #return role == role[:administrator]
-    true
+  def admin?
+    self.administrator? || self.principal?
   end
+  
 end
