@@ -3,6 +3,7 @@
 <table class='table'>
   <thead>
     <tr>
+      <th>Invitee</th>
       <th>Event Type</th>
       <th>Event Date</th>
       <th>Period</th>
@@ -13,6 +14,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
+        <th><%= event.users.first %></th>
         <td><%= event.event_type.capitalize %></td>
         <td><%= event.event_date.strftime('%d/%m/%Y') %></td>
         <td>Period</td>

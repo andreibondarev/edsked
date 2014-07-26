@@ -12,6 +12,14 @@
   <% end %>
 
   <div class='form-group'>
+    <% f.object.events_users.build %>
+    <%= f.fields_for :events_users do |l| %>
+      <%= l.label :user_id, 'Invitee' %><br />
+      <%= l.select :user_id, options_for_select(User.all.map{|u| [u.full_name, u.id]}), {}, {class: 'form-control'} %>
+    <% end %>
+  </div>
+
+  <div class='form-group'>
     <%= f.label :event_type, 'Event Type' %><br />
     <%= f.select :event_type, options_for_select(Event.event_types.keys, Event.event_types.values), {}, {class: 'form-control'} %>
   </div>
@@ -24,7 +32,7 @@
   <div class='form-group'>
     <%= f.label :period_id, 'Period' %><br />
     <%= f.text_field :period_id, value: 0, class: 'form-control' %>
-  </div>  
+  </div>
 
   <div class='form-group'>
     <%= f.submit 'Create', class: 'btn btn-primary' %>
