@@ -16,5 +16,4 @@ class User < ActiveRecord::Base
   def admin?
     self.administrator? || self.principal?
   end
-  
 end
