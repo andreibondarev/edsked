@@ -12,7 +12,7 @@
   <% end %>
 
   <div class='form-group'>
-    <% f.object.events_users.build %>
+    <% events_user = f.object.events_users.first_or_initialize %>
     <%= f.fields_for :events_users do |l| %>
       <%= l.label :user_id, 'Invitee' %><br />
       <%= l.select :user_id, options_for_select(User.all.map{|u| [u.full_name, u.id]}), {}, {class: 'form-control'} %>
