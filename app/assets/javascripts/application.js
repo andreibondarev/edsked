@@ -16,4 +16,6 @@
 //= require bootstrap-datepicker
 //= require jquery_ujs
 //= require turbolinks
+//= require fullcalendar
+//= require gcal
 //= require_tree .
