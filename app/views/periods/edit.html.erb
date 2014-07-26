@@ -1,0 +1,19 @@
+<h1>Edit Period</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@period) do |f| %>
+
+      <%= f.label :period_name %>
+      <%= f.text_field :period_name %>
+
+      <%= f.label :start_time %>
+      <%= f.time_field :start_time %>
+
+      <%= f.label :end_time %>
+      <%= f.time_field :end_time %>
+
+      <%= f.submit "Save Period", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

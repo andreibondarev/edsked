@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  period_name: MyString
+  is_planning: 
+  start_time: 2014-07-26 13:40:38
+  end_time: 2014-07-26 13:40:38
+
+two:
+  id: 
+  period_name: MyString
+  is_planning: 
+  start_time: 2014-07-26 13:40:38
+  end_time: 2014-07-26 13:40:38
