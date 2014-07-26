@@ -12,4 +12,9 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def show_admin?
+    #return role == role[:administrator]
+    true
+  end
 end
