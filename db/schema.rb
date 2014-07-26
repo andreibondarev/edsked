@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140726182935) do
+ActiveRecord::Schema.define(version: 20140726222230) do
 
   create_table "events", force: true do |t|
     t.integer  "event_type", null: false
@@ -55,5 +55,16 @@ ActiveRecord::Schema.define(version: 20140726182935) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "users_periods", force: true do |t|
+    t.integer  "user_id",     null: false
+    t.integer  "period_id",   null: false
+    t.boolean  "is_planning"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "users_periods", ["period_id"], name: "index_users_periods_on_period_id", using: :btree
+  add_index "users_periods", ["user_id"], name: "index_users_periods_on_user_id", using: :btree
 
 end

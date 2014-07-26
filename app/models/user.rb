@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   has_many :events_users         
   has_many :events, through: :events_users
 
+  has_many :users_periods
+  has_many :periods, through: :users_periods
+
   def full_name
     "#{first_name} #{last_name}"
   end
