@@ -12,7 +12,9 @@ Startup Weekend -- Education Event
 > - Install bundler
 >   - gem install bundler
 > - Install mysql5
->   - Create a root user with rootpass as the password (Or modify conf/database.yml to whatever user/pass you use, just don't commit this)
+>   - Create a root user with rootpass as the password (Or modify conf/database.yml to whatever user/pass you use, 
+just don't commit this)
+>   - Also install "mysql_config": sudo apt-get install libmysqlclient-dev
 > - Install gem dependencies
 >   - bundle install
 > - Create db and run migrations
