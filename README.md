@@ -16,7 +16,7 @@ Startup Weekend -- Education Event
 > - Install gem dependencies
 >   - bundle install
 > - Create db and run migrations
->   - RAILS_ENV=development bundle exec rake db:create db:migrate
+>   - RAILS_ENV=development bundle exec rake db:create db:migrate db:seed
 > - Start rails server
 >   - RAILS_ENV=development bundle exec rails server
 
