@@ -1,0 +1,30 @@
+<h1>Periods</h1>
+
+<div class="col-md-6">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+		<th>Name</th>
+		<th>Start Time</th>
+		<th>End Time</th>
+      </tr>
+    </thead>
+<% @periods.each do |period| %>
+    <tbody>
+    	<tr>
+    		<td><%= link_to period.period_name, edit_period_path(period) %>
+			</td>
+			<td>
+		      <%= period.start_time.strftime("%I:%M %p") %>
+			</td>
+			<td>
+		      <%= period.end_time.strftime("%I:%M %p") %>
+			</td>
+		</tr>
+    </tbody>
+<% end %>
+  </table>
+
+  <%= link_to "Create New Period", new_period_path, class: "btn btn-large btn-primary" %>
+</div>
+</ul>
