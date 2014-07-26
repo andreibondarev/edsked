@@ -41,3 +41,5 @@ gem 'spring',        group: :development
 
 gem 'devise'
 gem 'haml'
+gem 'autoprefixer-rails'
+gem 'bootstrap-datepicker-rails'
