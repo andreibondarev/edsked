@@ -1,7 +1,9 @@
 %h1 Dumb home controller
 %h4 Fix me in app/views/home/index.html.haml
 - if user_signed_in? 
-  %p Welcome #{current_user.email} = link_to('Logged In [click to logout]', destroy_user_session_path, :method => 'delete'
-- else 
+  %p
+    Welcome #{current_user.email}
+    = link_to('Logout', destroy_user_session_path, :method => 'delete')
+- else
   %p You are not signed in. 
   = link_to('Login', new_user_session_path)
