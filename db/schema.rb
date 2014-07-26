@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20140726182935) do
 
   create_table "events", force: true do |t|
     t.integer  "event_type", null: false
-    t.date     "event_date", null: false
+    t.datetime "event_date", null: false
     t.integer  "period_id",  null: false
     t.datetime "created_at"
     t.datetime "updated_at"
