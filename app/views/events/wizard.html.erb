@@ -1,0 +1,26 @@
+<div class='row'>
+  <div class='col-md-5'>
+    <h1>New events:</h1>
+      <%= form_for @wizard_form, url: events_create_bulk_path, action: 'create_bulk', method: :post do |f| %>
+        <%= render partial: 'shared/errors', locals: {object: @wizard_form} %>
+        <%= f.label 'Teacher(s)' %><br />
+        <div class="form-group form-control" style="overflow-y:scroll;height:150px;">
+          <% User.where(role: User.roles['teacher']).each do |user| %>
+          	<%= check_box_tag 'wizard_form[user_ids][]', user.id, (@wizard_form.user_ids.try(:any?) ? @wizard_form.user_ids.include?(user.id.to_s) : false) %> <%= user.full_name %>
+            <br />
+          <% end %>
+        </div>
+        <div class="form-group">
+          <%= f.label :start_date %>
+          <%= f.text_field :start_date, value: @wizard_form.start_date, class: "form-control datepicker" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :end_date %>
+          <%= f.text_field :end_date, value: @wizard_form.end_date, class: "form-control datepicker" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit 'Create', class: "btn btn-primary" %>
+        </div>
+      <% end %>
+  </div>
+</div>

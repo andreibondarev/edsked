@@ -16,3 +16,4 @@
 /tmp
 
 *.subl*
+.DS_Store

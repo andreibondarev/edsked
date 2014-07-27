@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :events
+  resources :events, except: [:show]
+  get '/events/wizard', to: 'events#wizard'
+  post '/events/create_bulk', to: 'events#create_bulk'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
   root to: "home#index"
