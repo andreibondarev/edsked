@@ -7,9 +7,12 @@ class BulkController < ApplicationController
 
     bulk[:users].each do |user|
       date, period_id = match_period(user, bulk[:start_date], bulk[:end_date])
-      Event.create(event_type: :observation, event_date: date, period_id: period_id) unless date.nil?
+      unless date.nil?
+        event = Event.create(event_type: :observation, event_date: date, period_id: period_id) 
+        EventsUser.create(user_id: current_user.id, event_id: event.id)
+        EventsUser.create(user_id: user.id, event_id: event.id)
+      end
     end
-
   end
 
   private
