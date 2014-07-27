@@ -1,6 +1,6 @@
 <div class='row'>
   <div class='col-md-5'>
-    <h1>New report:</h1>
+    <h1><i class="fa fa-file-text"></i> New report:</h1>
       <%= form_for @report, url: reports_path, html: {class: ''} do |f| %>
         <%= render partial: 'shared/errors', locals: {object: @report} %>
         <div class="form-group">
