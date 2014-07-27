@@ -10,7 +10,7 @@ class ReportsController < ApplicationController
     if @report.valid?
       #LOL
       sleep(2)
-      send_file './Report-Administrator.pdf', :type => 'image/pdf'
+      send_file './Report_7-27-14.pdf', :type => 'image/pdf'
     else
       render :new
     end
