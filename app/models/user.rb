@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  enum role: [ :student, :assistant, :teacher, :administrator, :principal ]
+  enum role: [ :student, :assistant, :teacher, :administrator, :principal, :service_provider ]
          
   has_many :events_users         
   has_many :events, through: :events_users
