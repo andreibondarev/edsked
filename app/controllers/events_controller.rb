@@ -77,13 +77,13 @@ class EventsController < ApplicationController
   end
 
   def match_period(user, start_date, end_date, type)
-    start_date..end_date.each do |date|
+    (start_date..end_date).each do |date|
       Period.all.each do |p|
         case type
         when :observation
-          next if user.planning_period?
+          next if user.planning_period?(p)
         when :post_conference
-          next unless user.planning_period?
+          next unless user.planning_period?(p)
         end
         if current_user.free_period?(p) and user.free_period?(p)
           return [date, p.id]
