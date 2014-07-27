@@ -3,7 +3,7 @@
     <h1>New events:</h1>
       <%= form_for @wizard_form, url: events_create_bulk_path, action: 'create_bulk', method: :post do |f| %>
         <%= render partial: 'shared/errors', locals: {object: @wizard_form} %>
-        <%= f.label 'Teacher(s)' %><br />
+        <%= f.label 'Invitee(s)' %><br />
         <div class="form-group form-control" style="overflow-y:scroll;height:150px;">
           <% User.where(role: User.roles['teacher']).each do |user| %>
           	<%= check_box_tag 'wizard_form[user_ids][]', user.id, (@wizard_form.user_ids.try(:any?) ? @wizard_form.user_ids.include?(user.id.to_s) : false) %> <%= user.full_name %>
