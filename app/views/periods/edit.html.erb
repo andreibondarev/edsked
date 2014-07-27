@@ -1,25 +1,7 @@
-<h1>Edit Period</h1>
-
-<div class="row">
-  <div class="col-md-6 offset3">
-    <%= form_for(@period) do |f| %>
-
-      <div class="form-group">
-      <%= f.label :period_name %>
-      <%= f.text_field :period_name %>
-      </div>
-
-      <div class="form-group">
-      <%= f.label :start_time %>
-      <%= f.time_field :start_time %>
-      </div>
-
-      <div class="form-group">
-      <%= f.label :end_time %>
-      <%= f.time_field :end_time %>
-      </div>
-
-      <%= f.submit "Save Period", class: "btn btn-large btn-primary" %>
-    <% end %>
+<% provide(:title, 'Edit Period') %>
+<div class='row'>
+  <div class='col-md-5'>
+    <h1>Edit period:</h1>
+    <%= render 'form' %>
   </div>
-</div>
+</div>    
