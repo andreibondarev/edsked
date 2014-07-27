@@ -1,7 +1,8 @@
 <% provide(:title, 'Periods') %>
+<% content_for(:heading, "<i class='fa fa-clock-o'></i> Periods".html_safe) %>
+
 <div class='row'>
   <div class='col-md-7'>
-    <h1>Periods:</h1>
     <table class="table">
       <thead>
         <tr>
@@ -15,7 +16,7 @@
       <tbody>
         <tr>
           <td>
-            <%= period.period_name %>
+            <%= link_to period.period_name, edit_period_path(period) %>
           </td>
           <td>
               <%= period.start_time.strftime("%I:%M %p") %>

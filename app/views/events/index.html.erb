@@ -1,8 +1,8 @@
 <% provide(:title, 'Events') %>
+<% content_for(:heading, "<i class='fa fa-cubes'></i> Events".html_safe) %>
+
 <div class='row'>
   <div class='col-md-8'>
-    <h1><i class="fa fa-cubes"></i> Events:</h1>
-
     <table class='table'>
       <thead>
         <tr>
@@ -21,7 +21,9 @@
             <td><%= event.event_type.gsub('_','').capitalize %></td>
             <td><%= event.event_date.strftime('%d/%m/%Y') %></td>
             <td><%= event.period.period_name %></td>
-            <td><%= link_to '<i class="fa fa-edit"></i> Edit'.html_safe, edit_event_path(event) %></td>
+            <td>
+              <%= link_to '<i class="fa fa-edit"></i> Edit'.html_safe, edit_event_path(event) %></td>
+            </td>
             <td><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>

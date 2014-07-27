@@ -1,7 +1,7 @@
-<% provide(:title, params[:role]) %>
+<% provide(:title, params[:role].pluralize.capitalize) %>
 <div class='row'>
   <div class='col-md-7'>
-    <h1><%= params[:role].pluralize.capitalize %></h1>
+<% content_for(:heading, "<i class='fa fa-user'></i> #{params[:role].pluralize.capitalize}".html_safe) %>
     <table class="table">
       <thead>
         <tr>

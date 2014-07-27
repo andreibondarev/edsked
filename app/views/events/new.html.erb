@@ -1,8 +1,8 @@
 <% provide(:title, 'New Event') %>
+<% content_for(:heading, "<i class='fa fa-cubes'></i> New Event".html_safe) %>
+
 <div class='row'>
   <div class='col-md-5'>
-    <h1>New event:</h1>
-
     <%= render 'events/form' %>
 
     <%= link_to 'Back', events_path %>

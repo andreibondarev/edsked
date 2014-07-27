@@ -39,11 +39,7 @@
               </li>
               <li>
                 <%= link_to 'Administrators', users_path(role: :administrator) %>
-              </li>
-              <li class="divider"></li>
-              <li class="<% ('active' if request.path.match('/reports')) %>">
-                <%= link_to 'Reports', new_report_path %>
-              </li>  
+              </li> 
             </ul>
           </li>
         <% end %>
