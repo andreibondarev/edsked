@@ -19,4 +19,9 @@ class User < ActiveRecord::Base
   def admin?
     self.administrator? || self.principal?
   end
+
+  def free_period?(period)
+    events = self.events_users.pluck(:event_id) 
+    events.empty? {|event| event.period_id == period.id }
+  end
 end
