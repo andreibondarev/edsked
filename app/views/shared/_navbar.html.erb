@@ -29,17 +29,23 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-cog"></i> Admin <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
+            <li><%= link_to "Profile", '#' %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Courses", '#' %></li>
               <li><%= link_to "Periods", periods_path %></li>
               <li class="divider"></li>
               <li>
-                <%= link_to 'Students', users_path(role: :student) %>
-              </li>
+                <%= link_to 'Administrators', users_path(role: :administrator) %>
+              </li> 
               <li>
                 <%= link_to 'Teachers', users_path(role: :teacher) %>
               </li>
               <li>
-                <%= link_to 'Administrators', users_path(role: :administrator) %>
+                <%= link_to 'Service Providers', users_path(role: :service_provider) %>
               </li> 
+              <li>
+                <%= link_to 'Students', users_path(role: :student) %>
+              </li>              
             </ul>
           </li>
         <% end %>

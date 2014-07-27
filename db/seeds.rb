@@ -29,6 +29,10 @@ User.where(first_name: 'Nelson', last_name: 'Brewer', email: 'nbrewer@gmail.com'
 User.where(first_name: 'Miranda', last_name: 'Vargas', email: 'mvargas@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
 User.where(first_name: 'Joyce', last_name: 'Richards', email: 'jrichards@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
 
+# Service providers
+User.where(first_name: 'Joe', last_name: 'Smith', email: 'jsmith@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :service_provider)
+User.where(first_name: 'Nick', last_name: 'Stoney', email: 'nstoney@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :service_provider)
+
 # Carole Curtis
 UsersPeriod.where(user_id: User.where(email: 'ccurtis@gmail.com').first.id, period_id: Period.where(period_name: 'Period 1').first.id).first_or_create(is_planning: false)
 UsersPeriod.where(user_id: User.where(email: 'ccurtis@gmail.com').first.id, period_id: Period.where(period_name: 'Period 2').first.id).first_or_create(is_planning: true)
