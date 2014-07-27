@@ -10,10 +10,12 @@
 
 <%= render partial: 'shared/navbar' %>
 
-<div class='container-fluid'>
-  <%= render partial: 'shared/alerts' %>
-  
-  <%= yield %>
+<div class='container'>
+  <div class='jumbotron'>
+    <%= render partial: 'shared/alerts' %>
+    
+    <%= yield %>
+  </div>
 </div>
 
 </body>
