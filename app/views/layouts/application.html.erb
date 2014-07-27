@@ -30,11 +30,21 @@
 <%= render partial: 'shared/navbar' %>
 
 <div class='container'>
-  <div class='jumbotron'>
-    <%= render partial: 'shared/alerts' %>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h1><%= yield(:heading).html_safe %></h1>
+    </div>
+    <div class="panel-body">
+      <%= render partial: 'shared/alerts' %>
     
     <%= yield %>
+    </div>
   </div>
+
+
+
+    
 </div>
 
 </body>

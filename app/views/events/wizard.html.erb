@@ -1,6 +1,8 @@
+<% provide(:title, 'New Events') %>
+<% content_for(:heading, "<i class='fa fa-cubes'></i> New events".html_safe) %>
+
 <div class='row'>
   <div class='col-md-5'>
-    <h1>New events:</h1>
       <%= form_for @wizard_form, url: events_create_bulk_path, action: 'create_bulk', method: :post do |f| %>
         <%= render partial: 'shared/errors', locals: {object: @wizard_form} %>
         <%= f.label 'Invitee(s)' %><br />
@@ -22,5 +24,6 @@
           <%= f.submit 'Create', class: "btn btn-primary" %>
         </div>
       <% end %>
+      <%= link_to 'Back', events_path %>
   </div>
 </div>

@@ -1,7 +1,8 @@
 <% provide(:title, 'New Period') %>
+<% content_for(:heading, "<i class='fa fa-file-text'></i> New period".html_safe) %>
+
 <div class='row'>
   <div class='col-md-5'>
-    <h1>New period:</h1>
-      <%= render 'form' %>
+    <%= render 'form' %>
   </div>
 </div>

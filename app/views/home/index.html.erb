@@ -1,7 +1,9 @@
 <% provide(:title, 'Calendar') %>
+<% content_for(:heading, "<i class='fa fa-calendar'></i> Calendar".html_safe) %>
 <div class='row'>
   <div class='col-md-7'>
-    <h1><i class="fa fa-calendar"></i> Calendar:</h1>
     <div id='calendar'></div>
+    <br />
+	<%= link_to 'View event list ->', events_path %>
   </div>
 </div>
