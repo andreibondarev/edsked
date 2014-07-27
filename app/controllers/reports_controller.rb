@@ -1,0 +1,17 @@
+class ReportsController < ApplicationController
+  before_filter :authenticate_user!
+
+  def new
+    @report = ReportForm.new
+  end
+
+  def create
+    @report = ReportForm.new(params[:report_form])
+    if @report.valid?
+      #LOL
+      send_file './Report-Administrator.pdf', :type => 'image/pdf'
+    else
+      render :new
+    end
+  end
+end

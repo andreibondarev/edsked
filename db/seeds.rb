@@ -18,16 +18,16 @@ Period.where(period_name: 'Period 8').first_or_create(start_time: "14:30", end_t
 Period.where(period_name: 'Period 9').first_or_create(start_time: "15:30", end_time: "16:25")
 
 # Additional Seed users
-User.where(first_name: 'Carole', last_name: 'Curtis', email: 'ccurtis@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
-User.where(first_name: 'Forrest', last_name: 'Berry', email: 'fberry@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
-User.where(first_name: 'Raquel', last_name: 'Morgan', email: 'rmorgan@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
-User.where(first_name: 'Cody', last_name: 'Cook', email: 'ccook@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
-User.where(first_name: 'Estelle', last_name: 'Gibson', email: 'egibson@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
-User.where(first_name: 'Nicole', last_name: 'Howell', email: 'nhowell@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
-User.where(first_name: 'Francis', last_name: 'Patterson', email: 'fpatterson@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
-User.where(first_name: 'Nelson', last_name: 'Brewer', email: 'nbrewer@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
-User.where(first_name: 'Miranda', last_name: 'Vargas', email: 'mvargas@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
-User.where(first_name: 'Joyce', last_name: 'Richards', email: 'jrichards@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1)
+User.where(first_name: 'Carole', last_name: 'Curtis', email: 'ccurtis@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
+User.where(first_name: 'Forrest', last_name: 'Berry', email: 'fberry@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
+User.where(first_name: 'Raquel', last_name: 'Morgan', email: 'rmorgan@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
+User.where(first_name: 'Cody', last_name: 'Cook', email: 'ccook@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
+User.where(first_name: 'Estelle', last_name: 'Gibson', email: 'egibson@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
+User.where(first_name: 'Nicole', last_name: 'Howell', email: 'nhowell@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
+User.where(first_name: 'Francis', last_name: 'Patterson', email: 'fpatterson@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
+User.where(first_name: 'Nelson', last_name: 'Brewer', email: 'nbrewer@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
+User.where(first_name: 'Miranda', last_name: 'Vargas', email: 'mvargas@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
+User.where(first_name: 'Joyce', last_name: 'Richards', email: 'jrichards@gmail.com').first_or_create(password: pass, password_confirmation: pass, organization_id: 1, role: :teacher)
 
 # Carole Curtis
 UsersPeriod.where(user_id: User.where(email: 'ccurtis@gmail.com').first.id, period_id: Period.where(period_name: 'Period 1').first.id).first_or_create(is_planning: false)
