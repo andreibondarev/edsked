@@ -31,17 +31,22 @@ class EventsController < ApplicationController
   def edit; end
 
   def create
-    @event = Event.new(event_params)
+    @event = Event.new(
+      event_params.merge('event_date' => Date.strptime(params['event']['event_date'], '%m/%d/%Y'))
+    )
 
     if @event.save
-      redirect_to events_path, notice: 'Event was successfully created.'
+      redirect_to events_path, notice: 'Event was successfully scheduled.'
     else
       render :new
     end
   end
 
   def update
-    if @event.update(event_params)
+    binding.pry
+    if @event.update(
+      event_params.merge('event_date' => Date.strptime(params['event']['event_date']))
+    )
       redirect_to events_path, notice: 'Event was successfully updated.'
     else
       render :edit
@@ -50,7 +55,7 @@ class EventsController < ApplicationController
 
   def destroy
     @event.destroy
-    redirect_to events_url, notice: 'Event was successfully destroyed.'
+    redirect_to events_url, notice: 'Event was successfully deleted.'
   end
 
   private
@@ -61,7 +66,7 @@ class EventsController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def event_params
-    params[:event].permit(:event_type, :period_id, :event_date, 
+    params[:event].permit(:event_type, :period_id,
       events_users_attributes: [:id, :user_id, :event_id])
   end
 
