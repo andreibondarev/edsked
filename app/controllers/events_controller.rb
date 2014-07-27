@@ -67,7 +67,7 @@ class EventsController < ApplicationController
 
   def create_event(user, start_date, end_date, type)
     event = nil
-    date, period_id = match_period(user, start_date, start_date)
+    date, period_id = match_period(user, start_date, start_date, type)
     unless date.nil?
       event = Event.create(event_type: type, event_date: date, period_id: period_id) 
       EventsUser.create(user_id: current_user.id, event_id: event.id)
@@ -76,10 +76,16 @@ class EventsController < ApplicationController
     return event
   end
 
-  def match_period(user, start_date, end_date)
+  def match_period(user, start_date, end_date, type)
     start_date..end_date.each do |date|
       Period.all.each do |p|
-        if current_user.free_period?(p) and teacher.free_period?(p)
+        case type
+        when :observation
+          next if user.planning_period?
+        when :post_conference
+          next unless user.planning_period?
+        end
+        if current_user.free_period?(p) and user.free_period?(p)
           return [date, p.id]
         end
       end

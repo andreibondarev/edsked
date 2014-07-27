@@ -24,4 +24,8 @@ class User < ActiveRecord::Base
     events = self.events_users.pluck(:event_id) 
     events.empty? {|event| event.period_id == period.id }
   end
+
+  def planning_period?(period)
+    UsersPeriod.find_by(period_id: period.id, user_id: self.id).is_planning?
+  end
 end
