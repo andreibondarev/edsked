@@ -1,23 +1,27 @@
 <div class='row'>
-  <div class='col-md-5'>
+  <div class='col-md-6'>
     <h1><i class="fa fa-file-text"></i> New report:</h1>
-      <%= form_for @report, url: reports_path, html: {class: ''} do |f| %>
-        <%= render partial: 'shared/errors', locals: {object: @report} %>
-        <div class="form-group">
-          <%= f.label 'Teacher' %>
-          <%= f.select :user_id, options_for_select(User.all.map{|p| [p.full_name, p.id]}, f.object.user_id), {include_blank: '(Select a teacher)'}, {class: 'form-control'} %>
-        </div>
-        <div class="form-group">
-          <%= f.label :start_date %>
-          <%= f.text_field :start_date, value: @report.start_date, class: "form-control datepicker" %>
-        </div>
-        <div class="form-group">
-          <%= f.label :end_date %>
-          <%= f.text_field :end_date, value: @report.end_date, class: "form-control datepicker" %>
-        </div>
-        <div class="form-group">
-          <%= f.submit 'Generate', class: "btn btn-primary" %>
-        </div>
-      <% end %>
+  </div>
+</div>
+<div class='row'>    
+  <div class='col-md-5'>
+    <%= form_for @report, url: reports_path, html: {class: ''} do |f| %>
+      <%= render partial: 'shared/errors', locals: {object: @report} %>
+      <div class="form-group">
+        <%= f.label 'Teacher' %>
+        <%= f.select :user_id, options_for_select(User.all.map{|p| [p.full_name, p.id]}, f.object.user_id), {include_blank: '(Select a teacher)'}, {class: 'form-control'} %>
+      </div>
+      <div class="form-group">
+        <%= f.label :start_date %>
+        <%= f.text_field :start_date, value: @report.start_date, class: "form-control datepicker" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :end_date %>
+        <%= f.text_field :end_date, value: @report.end_date, class: "form-control datepicker" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit 'Generate', class: "btn btn-primary" %>
+      </div>
+    <% end %>
   </div>
 </div>
