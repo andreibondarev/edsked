@@ -1,7 +1,7 @@
-<% provide(:title, params[:role]) %>
+<% provide(:title, params[:role].pluralize.capitalize) %>
 <div class='row'>
   <div class='col-md-7'>
-    <h1><%= params[:role].pluralize.capitalize %></h1>
+    <h1><i class="fa fa-user"></i> <%= params[:role].pluralize.capitalize %></h1>
     <table class="table">
       <thead>
         <tr>
