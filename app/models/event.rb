@@ -4,7 +4,7 @@ class Event < ActiveRecord::Base
   has_many :events_users
   has_many :users, through: :events_users
 
-  enum event_type: [:teaching, :planning]
+  enum event_type: [:observation, :post_conference]
 
   accepts_nested_attributes_for :events_users
 
