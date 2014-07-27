@@ -1,0 +1,36 @@
+<% provide(:title, params[:role]) %>
+<div class='row'>
+  <div class='col-md-7'>
+    <h1><%= params[:role].pluralize.capitalize %></h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>E-mail</th>
+          <th>Full Name</th>
+          <th>Last Name</th>
+          <th></th>
+        </tr>
+      </thead>
+    <% @users.each do |user| %>
+      <tbody>
+        <tr>
+          <td>
+            <%= link_to user.email, edit_user_path(user) %>
+          </td>
+          <td>
+              <%= user.first_name %>
+          </td>
+          <td>
+              <%= user.last_name %>
+          </td>
+          <td>
+            <%= link_to '<i class="fa fa-edit"></i> Edit'.html_safe, edit_user_path(user) %>
+          </td>
+      </tr>
+      </tbody>
+    <% end %>
+    </table>
+
+    <%= link_to "<i class='fa fa-plus'></i> New #{params[:role]}".html_safe, new_user_path(role: params[:role]) %>
+  </div>
+</div>
