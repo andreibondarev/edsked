@@ -12,9 +12,10 @@ class EventsController < ApplicationController
     @wizard_form = WizardForm.new(params[:wizard_form])
     if @wizard_form.valid?
       bulk_params[:user_ids].each do |user_id|
-        event = create_event(User.find(user_id), bulk_params[:start_date], bulk_params[:end_date], :observation)
-        create_event(User.find(user_id), event.event_date, event.event_date+2.days, :post_conference)
+        event = create_event(User.find(user_id), Date.strptime(bulk_params[:start_date], '%m/%d/%Y'), Date.strptime(bulk_params[:end_date], '%m/%d/%Y'), :observation)
+        create_event(User.find(user_id), event.event_date.to_date, event.event_date.to_date+2.days, :post_conference)
       end
+      redirect_to events_url, notice: 'Events have been scheduled'
     else
       render 'wizard'
     end
@@ -85,7 +86,7 @@ class EventsController < ApplicationController
         when :post_conference
           next unless user.planning_period?(p)
         end
-        if current_user.free_period?(p) and user.free_period?(p)
+        if current_user.free_period?(p, date) and user.free_period?(p, date)
           return [date, p.id]
         end
       end
