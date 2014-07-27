@@ -32,7 +32,9 @@
               <li><%= link_to "Periods", periods_path %></li>
               <li><a href="#">Teachers</a></li>
               <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+              <li class="<% ('active' if request.path.match('/reports')) %>">
+                <%= link_to 'Reports', new_report_path %>
+              </li>  
             </ul>
           </li>
         <% end %>
