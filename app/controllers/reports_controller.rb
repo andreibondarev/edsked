@@ -9,6 +9,7 @@ class ReportsController < ApplicationController
     @report = ReportForm.new(params[:report_form])
     if @report.valid?
       #LOL
+      sleep(2)
       send_file './Report-Administrator.pdf', :type => 'image/pdf'
     else
       render :new
