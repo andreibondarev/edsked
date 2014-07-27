@@ -1,7 +1,7 @@
 <% provide(:title, 'Events') %>
 <div class='row'>
   <div class='col-md-8'>
-    <h1>Events:</h1>
+    <h1><i class="fa fa-cubes"></i> Events:</h1>
 
     <table class='table'>
       <thead>
@@ -29,6 +29,7 @@
     </table>
     <br>
 
-    <%= link_to 'New Event', new_event_path %> | <%= link_to 'New Bulk Events', events_wizard_path %>
+    <%= link_to '<i class="fa fa-plus"></i> New Event'.html_safe, new_event_path %></br>
+    <%= link_to '<i class="fa fa-plus-square"></i> New Bulk Events'.html_safe, events_wizard_path %>
   </div>
 </div>

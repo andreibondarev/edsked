@@ -15,7 +15,7 @@
       <tbody>
         <tr>
           <td>
-            <%= link_to period.period_name, edit_period_path(period) %>
+            <%= period.period_name %>
           </td>
           <td>
               <%= period.start_time.strftime("%I:%M %p") %>
@@ -24,13 +24,13 @@
               <%= period.end_time.strftime("%I:%M %p") %>
           </td>
           <td>
-            <%= link_to 'Edit', edit_period_path(period) %>
+            <%= link_to '<i class="fa fa-edit"></i> Edit'.html_safe, edit_period_path(period) %>
           </td>
       </tr>
       </tbody>
     <% end %>
     </table>
 
-    <%= link_to 'New Period', new_period_path %>
+    <%= link_to '<i class="fa fa-plus"></i> New Period'.html_safe, new_period_path %>
   </div>
 </div>
