@@ -17,7 +17,7 @@
         <th><%= event.users.first.full_name %></th>
         <td><%= event.event_type.capitalize %></td>
         <td><%= event.event_date.strftime('%d/%m/%Y') %></td>
-        <td><%= event.period.period_name %></td>
+        <td><%= event.period %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
